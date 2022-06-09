@@ -69,28 +69,30 @@ const Edit = () => {
 
   return (
     <UploadDiv>
-      <UploadForm>
-        <label htmlFor="title">제목</label>
-        <input
-          id="title"
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.currentTarget.value)}
-        />
-        <label htmlFor="content">내용</label>
-        <textarea
-          value={content}
-          onChange={(e) => setContent(e.currentTarget.value)}
-        />
-        <UploadButtonDiv>
-          <button className="cancel" onClick={cancleHandler}>
-            취소
-          </button>
-          <button className="submit" onClick={submitHandler}>
-            제출
-          </button>
-        </UploadButtonDiv>
-      </UploadForm>
+      {flag && (
+        <UploadForm>
+          <label htmlFor="title">제목</label>
+          <input
+            id="title"
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.currentTarget.value)}
+          />
+          <label htmlFor="content">내용</label>
+          <textarea
+            value={content}
+            onChange={(e) => setContent(e.currentTarget.value)}
+          />
+          <UploadButtonDiv>
+            <button className="cancel" onClick={cancleHandler}>
+              취소
+            </button>
+            <button className="submit" onClick={submitHandler}>
+              제출
+            </button>
+          </UploadButtonDiv>
+        </UploadForm>
+      )}
     </UploadDiv>
   );
 };

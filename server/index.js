@@ -5,6 +5,8 @@ const express = require("express");
 // 모델
 const { Post } = require("./model/Post");
 const { Counter } = require("./model/Counter");
+const { User } = require("./model/User");
+
 const config = require("./config/key");
 const app = express();
 const port = 5000;
@@ -13,6 +15,7 @@ app.use(express.static(path.join(__dirname, "../client/build/")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/post", require("./router/post.js"));
+app.use("/api/user", require("./router/user.js"));
 
 app.listen(port, () => {
   mongoose
